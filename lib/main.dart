@@ -20,6 +20,12 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w600,
             letterSpacing: 1.0,
             color: Colors.black87
+          ),
+          headline4: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.0,
+            color: Colors.black87
           )
         )
       ),

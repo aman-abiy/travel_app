@@ -5,8 +5,9 @@ import 'package:shimmer/shimmer.dart';
 class ImageBuilder extends StatelessWidget {
   final String imageUrl;
   final double shimmerContainerHeight;
+  final double borderRadius;
 
-  ImageBuilder(this.imageUrl, this.shimmerContainerHeight);
+  ImageBuilder({this.imageUrl, this.shimmerContainerHeight, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class ImageBuilder extends StatelessWidget {
       imageUrl,
       fit: BoxFit.fitHeight,
       cache: true,
+      borderRadius: BorderRadius.circular(borderRadius),
       loadStateChanged: (ExtendedImageState state) {
         switch (state.extendedImageLoadState) {
           case LoadState.loading:

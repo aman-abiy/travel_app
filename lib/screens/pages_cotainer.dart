@@ -36,26 +36,22 @@ class _PagesContainerState extends State<PagesContainer> {
       // ),
       body: bodyNavigator(_currentIndex),
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height / 11),
+        preferredSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height / 8),
         child: CupertinoTabBar(
           currentIndex: _currentIndex,
           // type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home, size: 25), 
-              label: 'Discover'
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search_off_outlined),
-              label: 'Search'
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.archive_outlined),
-              label: 'Archived'
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_box_outlined),
-              label: 'Profile'
             )
           ],
           border: Border(top: BorderSide(width: 0.5, color: Colors.grey.shade400)),
