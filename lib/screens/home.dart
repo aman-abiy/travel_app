@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/style/HexColor.dart';
+import 'package:travel_app/widgets/header_tabs.dart';
 import 'package:travel_app/widgets/location_card.dart';
 import 'package:travel_app/widgets/popular_card.dart';
 
@@ -50,8 +51,16 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              child: HeaderTabs(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+              child: Text('23 sights', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+            ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.45,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -61,9 +70,10 @@ class _HomeState extends State<Home> {
                 ]
               ),
             ),
-            SizedBox(height: 25.0),
-            Text('Popular', style: Theme.of(context).textTheme.headline4),
-            SizedBox(height: 25.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+              child: Text('Popular', style: Theme.of(context).textTheme.headline4),
+            ),
             Column(
               children: [
                 PopularCard(),
@@ -74,7 +84,7 @@ class _HomeState extends State<Home> {
           ]
         ),
       ),
-      backgroundColor: HexColor('#f0f3fc'),
+      backgroundColor: HexColor('#f7f9fc'),
     );
   }
 }

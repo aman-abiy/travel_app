@@ -35,29 +35,84 @@ class _PagesContainerState extends State<PagesContainer> {
       //   )
       // ),
       body: bodyNavigator(_currentIndex),
-      bottomNavigationBar: PreferredSize(
-        preferredSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height / 8),
-        child: CupertinoTabBar(
-          currentIndex: _currentIndex,
-          // type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, size: 25), 
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search_off_outlined),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.archive_outlined),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_box_outlined),
-            )
-          ],
-          border: Border(top: BorderSide(width: 0.5, color: Colors.grey.shade400)),
-          activeColor: Colors.cyan[900],
-          onTap: _onTap
-        ),
+      bottomNavigationBar: Container(
+        height: MediaQuery.of(context).size.height * 0.1,                                             
+        decoration: BoxDecoration(                                                   
+          borderRadius: BorderRadius.only(                                           
+            topRight: Radius.circular(30), topLeft: Radius.circular(30)),            
+          boxShadow: [                                                               
+            BoxShadow(color: Colors.black45, spreadRadius: 0, blurRadius: 3),       
+          ], 
+          color: Colors.white                                                                        
+        ),                                                                           
+        child: ClipRRect(                                                            
+          borderRadius: BorderRadius.only(                                           
+          topLeft: Radius.circular(30.0),                                            
+          topRight: Radius.circular(30.0),                                           
+          ),                                                                         
+          child: CupertinoTabBar(
+            currentIndex: _currentIndex,                                                
+            items: [
+              BottomNavigationBarItem(
+                icon: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: _currentIndex == 0 ? Theme.of(context).primaryColor : Colors.white
+                  ),
+                  child: Icon(Icons.home_outlined, size: 30, color: _currentIndex == 0 ? Colors.white : Colors.black),
+                ), 
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: _currentIndex == 1 ? Theme.of(context).primaryColor : Colors.white
+                  ),
+                  child: Icon(Icons.search, size: 30, color: _currentIndex == 1 ? Colors.white : Colors.black),
+                ), 
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: _currentIndex == 2 ? Theme.of(context).primaryColor : Colors.white
+                  ),
+                  child: Icon(Icons.bookmark_outline, size: 30, color: _currentIndex == 2 ? Colors.white : Colors.black),
+                ), 
+              ),
+              BottomNavigationBarItem(
+                icon: Container(
+                  height: 45,
+                  width: 45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: _currentIndex == 3 ? Theme.of(context).primaryColor : Colors.white
+                  ),
+                  child: Icon(Icons.settings_outlined, size: 30, color: _currentIndex == 3 ? Colors.white :  Colors.black),
+                ), 
+              ),
+
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.search, size: 30),
+              // ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.bookmark, size: 30),
+              // ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.settings, size: 30),
+              // )
+            ],
+            border: Border(top: BorderSide(width: 0.5, color: Colors.grey.shade400)),
+            activeColor: Colors.white,
+            onTap: _onTap                                                                       
+          ),                                                                         
+        )       
       )
     );
   }
