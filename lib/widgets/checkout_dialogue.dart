@@ -152,7 +152,7 @@ class CheckoutDialogue {
                     height: MediaQuery.of(context).size.height * 0.25,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(25.0),
-                      child: ImageBuilder(imageUrl: imageUrl, shimmerContainerHeight: MediaQuery.of(context).size.height * 0.25, borderRadius: 25.0,))
+                      child: ImageBuilder(imageUrl: null, shimmerContainerHeight: MediaQuery.of(context).size.height * 0.25, borderRadius: 25.0,))
                   ),
                 )
               ],

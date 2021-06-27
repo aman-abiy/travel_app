@@ -7,13 +7,13 @@ class ImageBuilder extends StatelessWidget {
   final double shimmerContainerHeight;
   final double borderRadius;
 
-  ImageBuilder({this.imageUrl, this.shimmerContainerHeight, this.borderRadius = 0.0});
+  ImageBuilder({this.imageUrl,  this.shimmerContainerHeight, this.borderRadius = 0.0});
 
   @override
   Widget build(BuildContext context) {
-    print('IMGURLL 1 -< $imageUrl');
+      // return Image.asset('assets/images/image2.jpg');
     if (imageUrl == null) {
-      return Image.asset('assets/images/fall_back_img.jpg');
+      return Image.asset('assets/images/image1.jpg');
     }
     return ExtendedImage.network(
       imageUrl,
@@ -38,7 +38,7 @@ class ImageBuilder extends StatelessWidget {
             break;
           case LoadState.failed:
 
-            return Image.asset('assets/images/fall_back_img.jpg');
+            return Image.asset('assets/images/image1.jpg');
             break;
         }
         return Shimmer.fromColors(
