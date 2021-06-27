@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:travel_app/utils/image_builder.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../barrel.dart';
 
 class CheckoutDialogue {  
   String imageUrl = 'https://i.pinimg.com/originals/4b/af/9d/4baf9d114c709288cbae5f6cd6a18bd8.jpg';
@@ -40,8 +41,8 @@ class CheckoutDialogue {
                                   SizedBox(height: 10.0),
                                   Text('Excursion', style: TextStyle(color: Colors.grey, fontSize: 15)),
                                   SizedBox(height: 5.0),
-                                  Text('Lighthouse', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
-                                  SizedBox(height: 10.0),
+                                  Text('Lighthouse', style: GoogleFonts.montserrat(fontSize: 22, fontWeight: FontWeight.w600, letterSpacing: 0.5)),
+                                  SizedBox(height: 12.0),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                                     child: Row(

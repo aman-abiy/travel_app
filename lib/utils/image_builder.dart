@@ -17,7 +17,7 @@ class ImageBuilder extends StatelessWidget {
     }
     return ExtendedImage.network(
       imageUrl,
-      fit: BoxFit.fitHeight,
+      fit: BoxFit.cover,
       cache: true,
       borderRadius: BorderRadius.circular(borderRadius),
       loadStateChanged: (ExtendedImageState state) {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:travel_app/screens/home.dart';
-import 'home.dart';
+import '../barrel.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class PagesContainer extends StatefulWidget {
@@ -23,32 +22,21 @@ class _PagesContainerState extends State<PagesContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: PreferredSize(
-      //   preferredSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height / 12.5),
-      //   child: AppBar(
-      //     title: Padding(
-      //       padding: const EdgeInsets.symmetric(horizontal: 10),
-      //       child: Text(pageNames[_currentIndex], style: TextStyle(color: Colors.black54, fontWeight: FontWeight.w600),),
-      //     ),
-      //     backgroundColor: Colors.white60,
-      //     elevation: 0.1,
-      //   )
-      // ),
       body: bodyNavigator(_currentIndex),
       bottomNavigationBar: Container(
-        height: MediaQuery.of(context).size.height * 0.1,                                             
+        height: MediaQuery.of(context).size.height * 0.12,                                             
         decoration: BoxDecoration(                                                   
           borderRadius: BorderRadius.only(                                           
-            topRight: Radius.circular(30), topLeft: Radius.circular(30)),            
+            topRight: Radius.circular(60), topLeft: Radius.circular(60)),            
           boxShadow: [                                                               
-            BoxShadow(color: Colors.black45, spreadRadius: 0, blurRadius: 3),       
+            BoxShadow(color: Colors.black45, spreadRadius: 0, blurRadius: 1),       
           ], 
           color: Colors.white                                                                        
         ),                                                                           
         child: ClipRRect(                                                            
           borderRadius: BorderRadius.only(                                           
-          topLeft: Radius.circular(30.0),                                            
-          topRight: Radius.circular(30.0),                                           
+          topLeft: Radius.circular(60.0),                                            
+          topRight: Radius.circular(60.0),                                           
           ),                                                                         
           child: CupertinoTabBar(
             currentIndex: _currentIndex,                                                

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/utils/image_builder.dart';
-import 'package:travel_app/widgets/booking_dialoge.dart';
-import 'package:travel_app/widgets/rating_stars.dart';
+import '../barrel.dart';
 
 class DetailsPage extends StatefulWidget {
   final String imageUrl;
@@ -120,7 +118,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           sliderValue = newValue;
                         });
                       }, 
-                      activeColor: Colors.blue.shade300,
+                      activeColor: Theme.of(context).primaryColor,
                       label: '$sliderValue',
                       divisions: 4,
                       min: 0,
@@ -143,7 +141,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           height: 60,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(32.5),
-                            color: Theme.of(context).primaryColor
+                            color: Theme.of(context).buttonColor
                           ),
                           child: Center(
                             child: Padding(
@@ -169,7 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
                 IconButton(
                   onPressed: () => {},
-                  icon: Icon(Icons.share, color: Colors.white, size: 30.0,),
+                  icon: Icon(Icons.file_upload, color: Colors.white, size: 30.0,),
                 )
               ]
             ),

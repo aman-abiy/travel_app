@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/style/HexColor.dart';
-import 'package:travel_app/widgets/header_tabs.dart';
-import 'package:travel_app/widgets/location_card.dart';
-import 'package:travel_app/widgets/popular_card.dart';
+import '../barrel.dart';
 
 class Home extends StatefulWidget {
 
@@ -30,20 +27,20 @@ class _HomeState extends State<Home> {
                   GestureDetector(  
                     onTap: () {},
                     child: Container(
-                      height: 50.0,
-                      width: 50.0,
+                      height: 55.0,
+                      width: 55.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50.0),
+                        borderRadius: BorderRadius.circular(27.5),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey,
-                            blurRadius: 2,
-                            offset: Offset(2, 4), // Shadow position
+                            blurRadius: 1,
+                            offset: Offset(0, 1), // Shadow position
                           ),
                         ],
                       ),
-                      child: Icon(Icons.tune,
+                      child: Icon(Icons.tune_rounded,
                         color: Colors.black
                       ),
                     ),
@@ -76,15 +73,16 @@ class _HomeState extends State<Home> {
             ),
             Column(
               children: [
-                PopularCard(),
-                PopularCard(),
-                PopularCard(),
+                PopularCard(title: 'European Tour', imageUrl: 'https://static.wikia.nocookie.net/westworld/images/f/fb/Westworld-The-Maze-church-steeple.png/revision/latest?cb=20161130015153'),
+                PopularCard(title: 'Asian Tour', imageUrl: 'https://live.staticflickr.com/139/326369272_d524a09479_b.jpg'),
+                PopularCard(title: 'American Tour', imageUrl: 'https://st.depositphotos.com/1918609/1739/i/600/depositphotos_17395059-stock-photo-white-church-in-canada.jpg'),
+                PopularCard(title: 'African Tour', imageUrl: 'https://www.nuci.org/wp-content/uploads/2020/09/20141101093012-REMSteeple_0005-scaled.jpg'),
               ]
             )
           ]
         ),
       ),
-      backgroundColor: HexColor('#f7f9fc'),
+      backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 }

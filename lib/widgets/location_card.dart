@@ -1,11 +1,8 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:travel_app/screens/details_page.dart';
-import 'package:travel_app/utils/image_builder.dart';
-import 'package:travel_app/widgets/rating_stars.dart';
+import '../barrel.dart';
 
 class LocationCard extends StatelessWidget {
-  String imageUrl = 'https://i.pinimg.com/originals/4b/af/9d/4baf9d114c709288cbae5f6cd6a18bd8.jpg';
+  final String imageUrl = 'https://www.surfertoday.com/images/stories/lighthouse.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +12,12 @@ class LocationCard extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 0),
-        // width: MediaQuery.of(context).size.width * 0.7,
+        width: MediaQuery.of(context).size.width * 0.7,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25.0),
           child: Stack(
             children: [
-              ImageBuilder(imageUrl: imageUrl, shimmerContainerHeight: MediaQuery.of(context).size.height * 0.4, borderRadius:20.0),
+              Container(height: MediaQuery.of(context).size.height * 0.5, child: ImageBuilder(imageUrl: imageUrl, shimmerContainerHeight: MediaQuery.of(context).size.height * 0.4, borderRadius:20.0)),
               Positioned(
                 top: MediaQuery.of(context).size.height * 0.27,
                 left: 15.0,
@@ -42,10 +39,10 @@ class LocationCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 18.0,
-                left: MediaQuery.of(context).size.height * 0.32,
+              Align(
+                alignment: Alignment.topRight,
                 child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
                   height: 50.0,
                   width: 50.0,
                   decoration: BoxDecoration(

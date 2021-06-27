@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:travel_app/widgets/checkout_dialogue.dart';
+import '../barrel.dart';
 
 class BookingDialogue {
   CheckoutDialogue checkoutDialogue = CheckoutDialogue();
@@ -8,7 +8,7 @@ class BookingDialogue {
   List<String> days = ['Sunday', 'Monday', 'Tuesday', 'Wednsday', 'Thursday', 'Friday', 'Saturday'];
   List<int> dates = [21, 22, 23, 24, 25, 26, 27];
 
-  String selectedDay = '';
+  String selectedDay = 'Sunday';
   int selectedTimeStart = 10;
   
 
@@ -27,61 +27,65 @@ class BookingDialogue {
         return Container(
           height: MediaQuery.of(context).size.height * 0.85,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30.0)
+            borderRadius: BorderRadius.circular(30.0),
           ),
           child: BottomSheet(
             onClosing: () {}, 
             builder: (context) {
               return StatefulBuilder(
                 builder: (context, setState) {
-                  return ListView(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.close), 
-                              onPressed: () => Navigator.of(context).pop()
-                            ),
-                            Text('Booking', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
-                            FlatButton(
-                              onPressed: () {}, 
-                              child: Text('Done', style: TextStyle(color: Theme.of(context).primaryColor))
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-                        child: buildDateSelector(context, setState),
-                      ),
-                      Divider(),
-                      timeCards(context, 10, 14, false, setState),
-                      timeCards(context, 12, 15, true, setState),
-                      timeCards(context, 14, 18, true, setState),
-                      SizedBox(height: 10.0),
-                      GestureDetector(
-                        onTap: () => {                          
-                          checkoutDialogue.checkoutDialogue(context)
-                        },
-                        child: Container(
-                          margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.3),
-                          height: 60,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.5),
-                            color: Theme.of(context).primaryColor
+                  return Container(
+                    color: Colors.grey.shade100,
+                    child: ListView(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.close), 
+                                onPressed: () => Navigator.of(context).pop()
+                              ),
+                              Text('Booking', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
+                              FlatButton(
+                                onPressed: () {}, 
+                                child: Text('Done', style: TextStyle(color: Theme.of(context).buttonColor))
+                              )
+                            ],
                           ),
-                          child: Center(
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                              child: Text('Checkout', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600)),
-                            ))
                         ),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                          child: buildDateSelector(context, setState),
+                        ),
+                        Divider(),
+                        timeCards(context, 10, 14, false, setState),
+                        timeCards(context, 12, 15, true, setState),
+                        timeCards(context, 14, 18, true, setState),
+                        SizedBox(height: 20.0),
+                        GestureDetector(
+                          onTap: () => {   
+                            Navigator.of(context).pop(),
+                            checkoutDialogue.checkoutDialogue(context),
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.3),
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.5),
+                              color: Theme.of(context).buttonColor
+                            ),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                                child: Text('Checkout', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600)),
+                              ))
+                          ),
+                        )
+                      ],
+                    ),
                   );
                 }
               );
@@ -110,10 +114,10 @@ class BookingDialogue {
           selectedDay = day;
         });
       },
-          child: Container(
+      child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: selectedDay == day ? Theme.of(context).primaryColor : Colors.white
+          color: selectedDay == day ? Theme.of(context).buttonColor : Colors.grey.shade100
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 15.0),
@@ -164,12 +168,12 @@ class BookingDialogue {
                 width: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
-                  color: selectedTimeStart == startHour ? Theme.of(context).primaryColor : Colors.white,
-                  border: Border.all(color: selectedTimeStart == startHour ? Colors.white: Colors.grey.shade200)
+                  color: selectedTimeStart == startHour ? Theme.of(context).buttonColor : Colors.white,
+                  border: Border.all(color: selectedTimeStart == startHour ? Colors.white: Colors.grey.shade300)
                 ),
                 child: Center(
                   child: IconButton(
-                    icon: Icon(Icons.rice_bowl, size: 20, color: Colors.white), 
+                    icon: Icon(Icons.done, size: 20, color: Colors.white), 
                     onPressed: () {
                       setState(() {
                         selectedTimeStart = startHour;
