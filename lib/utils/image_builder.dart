@@ -13,7 +13,7 @@ class ImageBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
       // return Image.asset('assets/images/image2.jpg');
     if (imageUrl == null) {
-      return Image.asset('assets/images/image1.jpg');
+      return Image.asset('assets/images/image2.jpg');
     }
     return ExtendedImage.network(
       imageUrl,

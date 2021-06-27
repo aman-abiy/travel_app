@@ -40,7 +40,7 @@ class _HeaderTabsState extends State<HeaderTabs> {
               width: 8,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: selected == title ?  Theme.of(context).primaryColor : Colors.white,
+                color: selected == title ?  Theme.of(context).primaryColor : Theme.of(context).backgroundColor,
               )
             )
           ]
