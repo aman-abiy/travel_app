@@ -7,7 +7,7 @@ class ImageBuilder extends StatelessWidget {
   final double shimmerContainerHeight;
   final double borderRadius;
 
-  ImageBuilder({this.imageUrl, this.shimmerContainerHeight, this.borderRadius});
+  ImageBuilder({this.imageUrl, this.shimmerContainerHeight, this.borderRadius = 0.0});
 
   @override
   Widget build(BuildContext context) {

@@ -33,7 +33,20 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w500,
             letterSpacing: 1.0,
             color: Colors.white
-          )
+          ),
+          headline6: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 1.0,
+            color: Colors.black
+          ),
+          overline: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 1.0,
+            color: Colors.black
+          ),
+          
         )
       ),
       home: PagesContainer(),
